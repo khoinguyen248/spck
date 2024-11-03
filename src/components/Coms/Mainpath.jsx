@@ -20,8 +20,8 @@ export const Mainpath = () => {
     
   return (
     <>
-    {userId === "1" &&  <Allemployee />}
-    {userId === "2" &&  <Alldepartment />}
+    {userId === "2" &&  <Allemployee />}
+    {userId === "3" &&  <Alldepartment />}
   
    
    </>
