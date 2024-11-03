@@ -74,7 +74,7 @@ const Signup = () => {
                         gap: '10px'
                     }}>
                         <img src={logo} alt="" style={{ width: "50px", height: "50px" }} />
-                        <h1 style={{ fontFamily: 'lexend' }}>HRSM</h1>
+                        <h1 style={{ fontFamily: 'lexend' }}>HRMS</h1>
                     </div>
 
                     <p style={{
@@ -183,11 +183,11 @@ const Signup = () => {
                         fontSize: '16px',
                         lineHeight: '24px',
                         fontWeight: '300px',
-                        cursor:'pointer',
+                        cursor: 'pointer',
                         display: 'flex',
-                        justifyContent:'center',
-                        alignItems:'center',
-                        
+                        justifyContent: 'center',
+                        alignItems: 'center',
+
                     }} onClick={handleCheckPassword} >Login</button>
                 </div>
             </div>

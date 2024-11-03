@@ -21,16 +21,16 @@ const router = createBrowserRouter([
   },
 
   {
-     path:"/signup",
-     element: <Signup />,
+    path: "/signup",
+    element: <Signup />,
   },
 
   {
-    path:"/Homepage",
+    path: "/Homepage",
     element: <Button />,
     children: [
       {
-        path: ":userId", 
+        path: ":userId",
         element: <Mainpath />
       }
     ]
@@ -42,15 +42,16 @@ const router = createBrowserRouter([
     element: <Forget />
   },
   {
-    path:"/otp",
-    element: <Otp/>
+    path: "/otp",
+    element: <Otp />
   }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StoreProvider>
-    
+
     <RouterProvider router={router} />
 
   </StoreProvider>,
 )
+//Test
