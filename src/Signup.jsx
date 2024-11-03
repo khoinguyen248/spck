@@ -74,7 +74,7 @@ const Signup = () => {
                         gap: '10px'
                     }}>
                         <img src={logo} alt="" style={{ width: "50px", height: "50px" }} />
-                        <h1 style={{ fontFamily: 'lexend' }}>HRSM</h1>
+                        <h1 style={{ fontFamily: 'lexend' }}>HRMS</h1>
                     </div>
 
                     <p style={{
@@ -111,7 +111,7 @@ const Signup = () => {
                                 onChange={handlePass}
                             />
                             <label htmlFor="password" className='title'>Password</label>
-                            {pass ? <FaEye onClick={checkPass} style={{ cursor: 'pointer', position: 'absolute', top:'35%', right:'25%'}}/> : <FaRegEyeSlash onClick={checkPass} style={{ cursor: 'pointer', position: 'absolute', top:'35%', right:'25%'}}/>}
+                            {pass ? <FaEye onClick={checkPass} style={{ cursor: 'pointer', position: 'absolute', top: '35%', right: '25%' }} /> : <FaRegEyeSlash onClick={checkPass} style={{ cursor: 'pointer', position: 'absolute', top: '35%', right: '25%' }} />}
                         </div> </> : <>
                         <div className="input-container" style={{ marginBottom: '20px' }}>
                             <input type="email" id="email" name="email" placeholder=" " required className='sign2' value={mail} onChange={handleMail} />
@@ -138,7 +138,7 @@ const Signup = () => {
                                 onChange={handlePass}
                             />
                             <label htmlFor="password" className='title2' >Password</label>
-                            {pass ? <FaEye onClick={checkPass} style={{ cursor: 'pointer', position: 'absolute', top:'25%', right:'25%'}}/> : <FaRegEyeSlash onClick={checkPass } style={{ cursor: 'pointer', position: 'absolute', top:'25%', right:'25%'}}/>}
+                            {pass ? <FaEye onClick={checkPass} style={{ cursor: 'pointer', position: 'absolute', top: '25%', right: '25%' }} /> : <FaRegEyeSlash onClick={checkPass} style={{ cursor: 'pointer', position: 'absolute', top: '25%', right: '25%' }} />}
                             <p style={{
                                 fontFamily: 'lexend',
                                 fontSize: '16px',
@@ -183,11 +183,11 @@ const Signup = () => {
                         fontSize: '16px',
                         lineHeight: '24px',
                         fontWeight: '300px',
-                        cursor:'pointer',
+                        cursor: 'pointer',
                         display: 'flex',
-                        justifyContent:'center',
-                        alignItems:'center',
-                        
+                        justifyContent: 'center',
+                        alignItems: 'center',
+
                     }} onClick={handleCheckPassword} >Login</button>
                 </div>
             </div>
