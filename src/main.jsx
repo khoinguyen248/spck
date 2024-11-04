@@ -13,6 +13,7 @@ import Forget from './Forget.jsx'
 import { Otp } from './Otp.jsx'
 
 import { Mainpath } from './components/Coms/Mainpath.jsx'
+import AddEmployee from './components/AllEmployees/AddEmployee/AddEmployee.jsx'
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/otp",
     element: <Otp />
+  },
+  {
+    path: "/allemployee/addemployee",
+    element: <AddEmployee />
   }
 ]);
 
