@@ -2,9 +2,18 @@
 import { useState } from 'react';
 import './AddEmployee.css'
 import { FaUser } from "react-icons/fa6";
+import { SlBriefcase } from "react-icons/sl";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { IoAccessibilityOutline } from "react-icons/io5";
+import { IoCameraOutline } from "react-icons/io5";
+import React, { useRef } from 'react';
+
 const AddEmployee = () => {
     const [nowList, setnowList] = useState(1)
-
+    const inputRef = useRef(null);
+    const focusInput = () => {
+        inputRef.current.click();
+    };
     return (
         <>
             <div className="addEmployee">
@@ -20,40 +29,46 @@ const AddEmployee = () => {
                         </div>
                     }
                     {nowList == 2 ? < div onClick={() => { setnowList(2) }} className="topDetailOn">
-                        <FaUser />
+                        <SlBriefcase />
                         <p>Professional Information</p>
                     </div>
                         :
                         <div onClick={() => { setnowList(2) }} className="topDetailOff">
-                            <FaUser />
+                            <SlBriefcase />
                             <p>Professional Information</p>
                         </div>
                     }
                     {nowList == 3 ? < div onClick={() => { setnowList(3) }} className="topDetailOn">
-                        <FaUser />
+                        <IoDocumentTextOutline />
+
                         <p>Documents</p>
                     </div>
                         :
                         <div onClick={() => { setnowList(3) }} className="topDetailOff">
-                            <FaUser />
+                            <IoDocumentTextOutline />
+
                             <p>Documents</p>
                         </div>
                     }
                     {nowList == 4 ? < div onClick={() => { setnowList(4) }} className="topDetailOn">
-                        <FaUser />
+                        <IoAccessibilityOutline />
+
                         <p>Account Access</p>
                     </div>
                         :
                         <div onClick={() => { setnowList(4) }} className="topDetailOff">
-                            <FaUser />
+                            <IoAccessibilityOutline />
                             <p>Account Access</p>
                         </div>
                     }
                 </div>
                 {nowList == 1 && <>
                     <div className="content">
-                        <div className="addPhoto">
-                            <FaUser />
+                        <div style={{ display: 'flex' }}>
+                            <div onClick={focusInput} className="addPhoto">
+                                <IoCameraOutline size={25} />
+                            </div>
+                            <input style={{ display: 'none' }} ref={inputRef} type="file" />
                         </div>
                         <form className="input2">
                             <input placeholder='First Name' className="firstName"></input>
