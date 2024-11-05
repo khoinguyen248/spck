@@ -50,33 +50,82 @@ const AddEmployee = () => {
                         </div>
                     }
                 </div>
-                <div className="content">
-                    <div className="addPhoto">
-                        <FaUser />
+                {nowList == 1 && <>
+                    <div className="content">
+                        <div className="addPhoto">
+                            <FaUser />
+                        </div>
+                        <form className="input2">
+                            <input placeholder='First Name' className="firstName"></input>
+                            <input placeholder='Last Name' className="lastName"></input>
+                            <input placeholder='Mobile Number' className="mobileNumber"></input>
+                            <input placeholder='Email Address' className="emailAddress"></input>
+                            <input placeholder='Date of Birth' className="dateOfBirth"></input>
+                            <input placeholder='Marital Status' className="maritalStatus"></input>
+                            <input placeholder='Gender' className="gender"></input>
+                            <input placeholder='Nationality' className="Nationality"></input>
+                        </form>
+                        <form className="input1">
+                            <input placeholder='Address' className="address" />
+                        </form>
+                        <form className="input3">
+                            <input placeholder='City' className='city'></input>
+                            <input placeholder='State' className="state"></input>
+                            <input placeholder='Zip Code' className='zipCode'></input>
+                        </form>
                     </div>
-                    <form className="input2">
-                        <input className="firstName"></input>
-                        <input className="lastName"></input>
-                        <input className="mobileNumber"></input>
-                        <input className="emailAddress"></input>
-                        <input className="dateOfBirth"></input>
-                        <input className="maritalStatus"></input>
-                        <input className="gender"></input>
-                        <input className="Nationality"></input>
-                    </form>
-                    <form className="input1">
-                        <input type="text" className="address" />
-                    </form>
-                    <form className="input3">
-                        <input className='city'></input>
-                        <input className="state"></input>
-                        <input className='zipCode'></input>
-                    </form>
-                </div>
-                <div className="buttom">
-                    <button className="cancel">Cancel</button>
-                    <button className="next">Next</button>
-                </div>
+                    <div className="buttom">
+                        <button className="cancel">Cancel</button>
+                        <button onClick={() => { setnowList(nowList + 1) }} className="next">Next</button>
+                    </div>
+                </>
+                }
+                {nowList == 2 && <>
+                    <div className="content">
+                        <form className="input2">
+                            <input placeholder='Employee ID' className="employeeID"></input>
+                            <input placeholder='User Name' className="userName"></input>
+                            <input placeholder='Employee Type' className="employeeType"></input>
+                            <input placeholder='Email Address' className="emailAddressCompany"></input>
+                            <input placeholder='Department' className="dapartment"></input>
+                            <input placeholder='Enter Designation' className="enterDesighnation"></input>
+                            <input placeholder='Working Days' className="workingDays"></input>
+                            <input placeholder='Joining Date' className="joiningDate"></input>
+                        </form>
+                        <form className="input1">
+                            <input placeholder='Office Location' className="officeLocation" />
+                        </form>
+                    </div>
+                    <div className="buttom">
+                        <button className="cancel">Cancel</button>
+                        <button onClick={() => { setnowList(nowList + 1) }} className="next">Next</button>
+                    </div>
+                </>
+                }
+                {nowList == 3 && <>
+                    <div className="buttom">
+                        <button className="cancel">Cancel</button>
+                        <button onClick={() => { setnowList(nowList + 1) }} className="next">Next</button>
+                    </div>
+                </>
+                }
+                {nowList == 4 && <>
+                    <div className="content">
+                        <form className="input2">
+                            <input placeholder='Enter Email Address' className="firstName"></input>
+                            <input placeholder='Enter Stack ID' className="lastName"></input>
+                            <input placeholder='Enter Skype ID' className="mobileNumber"></input>
+                            <input placeholder='Enter Github ID' className="emailAddress"></input>
+                        </form>
+
+                    </div>
+                    <div className="buttom">
+                        <button className="cancel">Cancel</button>
+                        <button className="add">Add</button>
+                    </div>
+                </>
+                }
+
             </div >
         </>
     )

@@ -105,5 +105,13 @@
             background-color: #7152F3;
             color: white;
         }
+
+        button.add {
+            height: 50px;
+            width: 91px;
+            border-radius: 10px;
+            background-color: #7152F3;
+            color: white;
+        }
     }
 }
