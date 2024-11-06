@@ -15,29 +15,35 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 
 export const Button = () => {
-    const [checkbut, setCheckbut] = useState(null);
-    const [toogle, setToogle] = useState(false)
+    
+
 
    
+   
    const navigate = useNavigate()
+   const {userId} = useParams()
+
+
     const handleCheckbut = (int) => {
-        setCheckbut(int);
+       
         navigate(`/Homepage/${int}`)
+    
+        
     };
 
     
     
     return (
         <>
-         <div style={{
-                width: '100vw',
+        <div style={{
+                width: '1500px',
                 display: 'flex',
                 justifyContent: 'space-between'
 
             }}>
 
 
-<div className="parent">
+        <div className="parent">
                     <div className='menu'>
                         <div style={{
                             display: "flex",
@@ -49,19 +55,37 @@ export const Button = () => {
                             <img src={logo} alt="" style={{ width: "40px", height: "40px" }} />
                             <p style={{ fontFamily: 'lexend', fontSize: '24px' }}>HRSM</p>
                         </div>
-                        <button className={checkbut === 1 ? 'selected' : ''} onClick={() => handleCheckbut(1)}><RxDashboard />Dashboard</button>
-                        <button className={checkbut === 2 ? 'selected' : ''} onClick={() => handleCheckbut(2)}><BsPersonLinesFill />All employees</button>
-                        <button className={checkbut === 3 ? 'selected' : ''} onClick={() => handleCheckbut(3)}><MdOutlineLocalFireDepartment />All departments</button>
-                        <button className={checkbut === 4 ? 'selected' : ''} onClick={() => handleCheckbut(4)}><GrSchedules />Attendance</button>
-                        <button className={checkbut === 5 ? 'selected' : ''} onClick={() => handleCheckbut(5)}><CiDollar />Payroll</button>
-                        <button className={checkbut === 6 ? 'selected' : ''} onClick={() => handleCheckbut(6)}><RxBackpack />Jobs</button>
-                        <button className={checkbut === 7 ? 'selected' : ''} onClick={() => handleCheckbut(7)}><IoPersonAddOutline />Candidates</button>
-                        <button className={checkbut === 8 ? 'selected' : ''} onClick={() => handleCheckbut(8)}><MdEventNote />Leaves</button>
-                        <button className={checkbut === 9 ? 'selected' : ''} onClick={() => handleCheckbut(9)}><LuCalendarDays />Holidays</button>
-                        <button className={checkbut === 0 ? 'selected' : ''} onClick={() => handleCheckbut(0)}><IoSettingsOutline />Setting</button>
+                        <button className={userId === "Dashboard" ? 'selected' : ''} onClick={() => handleCheckbut("Dashboard")}><RxDashboard />Dashboard</button>
+
+                       
+                        <button  className={userId === "Allemployees" ? 'selected' : ''} onClick={() => handleCheckbut("Allemployees")}><BsPersonLinesFill />All employees</button>
+                        <button className={userId === "Alldepartments"  ? 'selected' : ''} onClick={() => handleCheckbut("Alldepartments")}><MdOutlineLocalFireDepartment />All departments</button>
+                        <button className={userId === "4" ? 'selected' : ''} onClick={() => handleCheckbut(4)}><GrSchedules />Attendance</button>
+                        <button className={userId === "5" ? 'selected' : ''} onClick={() => handleCheckbut(5)}><CiDollar />Payroll</button>
+                        <button className={userId === "6" ? 'selected' : ''} onClick={() => handleCheckbut(6)}><RxBackpack />Jobs</button>
+                        <button className={userId === "7" ? 'selected' : ''} onClick={() => handleCheckbut(7)}><IoPersonAddOutline />Candidates</button>
+                        <button className={userId === "8" ? 'selected' : ''} onClick={() => handleCheckbut(8)}><MdEventNote />Leaves</button>
+                        <button className={userId === "9" ? 'selected' : ''} onClick={() => handleCheckbut(9)}><LuCalendarDays />Holidays</button>
+                        <button className={userId === "0" ? 'selected' : ''} onClick={() => handleCheckbut(0)}><IoSettingsOutline />Setting</button>
                     </div>
 
                 </div>
+
+                {!userId && <div style={{width:'82%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', }}>
+
+                    <p style={{marginBottom: '8px',
+                        fontFamily: 'Lexend',
+                        fontSize: '40px',
+                        fontWeight: '600',
+                        lineHeight: '40px'}}>Welcome</p>
+                    <p style={{ marginBottom: '30px',
+                        fontFamily: 'lexend',
+                        fontSize: '26px',
+                        lineHeight: '24px',
+                        fontWeight: '300px',
+                        color: 'rgba(162, 161, 168, 1)'}}>Let's get started</p>
+                    
+                    </div>}
               
                 <Outlet />
             </div>

@@ -40,17 +40,35 @@ const Allemployee = () => {
 
        <div className="boxcontent">
            <div className='boxcontent-1'>
-               <p>Employee Name</p>
-               <p>Employee ID</p>
-               <p>Department</p>
-               <p>Designation</p>
-               <p>Type</p>
-               <p>Status</p>
+               <p style={{
+               width:'252px',
+               textAlign:'left'
+               }}>Employee Name</p>
+               <p style={{
+                width:'132px',
+               textAlign:'left'
+               }}>Employee ID</p>
+               <p style={{
+                width:'172px',
+               textAlign:'left'
+               }}>Department</p>
+               <p style={{
+                 width:'162px',
+               textAlign:'left'
+               }}>Designation</p>
+               <p style={{
+                 width:'112px',
+               textAlign:'left'
+               }}>Type</p>
+               <p  style={{
+                 width:'110px',
+               textAlign:'left'
+               }}>Status</p>
                <p>Action</p>
            </div>
-           
+           <hr style={{ border: "1px solid black" }}/>
        </div>
-       <hr style={{ border: "1px solid black" }}/>
+       
       </div>
       
 

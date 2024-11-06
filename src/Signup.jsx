@@ -37,7 +37,7 @@ const Signup = () => {
             const savedPassword = "yourSavedPassword";
 
             if (password === savedPassword) {
-                navigate("/Homepage/2")
+                navigate("/Homepage")
             } else {
                 setReport(false)
             }

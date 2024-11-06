@@ -11,17 +11,37 @@ import Alldepartment from './Alldepartment';
 export const Mainpath = () => {
     const store = useContext(StoreContext)
     const { setCurrentPage } = store;
-
+    const { setListWorkers } = store;
     const {userId} = useParams()
+
+    const fetchOne = async () =>{
+
+
+      try{
+        const respone = await fetch('https://671c5ff22c842d92c382ba18.mockapi.io/mindxpro')
+        const data = await respone.json()
+        console.log(data)
+
+      }
+
+      catch{
+
+      }
+
+    }
 
     useEffect(() => {
         setCurrentPage(userId);
     }, [userId])
+
+   if(userId === "Allemployees"){
+        fetchOne()
+   }
     
   return (
     <>
-    {userId === "2" &&  <Allemployee />}
-    {userId === "3" &&  <Alldepartment />}
+    {userId === "Allemployees" &&  <Allemployee />}
+    {userId === "Alldepartments" &&  <Alldepartment />}
   
    
    </>
