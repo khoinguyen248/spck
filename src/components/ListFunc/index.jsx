@@ -17,27 +17,16 @@ import { StoreContext } from '../../store';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 
 export const Button = () => {
+    const navigate = useNavigate()
+    const { userId } = useParams()
+    console.log("🚀 ~ Button ~ userId:", userId)
     
-
-
-   
-   const navigate = useNavigate()
-   const {userId} = useParams()
-   
-   
-
     const handleCheckbut = (int) => {
-       
         navigate(`/Homepage/${int}`)
-        
-        
     };
-
-    
-    
-    return (
+   return (
         <>
-        <div style={{
+            <div style={{
                 width: '1500px',
                 display: 'flex',
                 justifyContent: 'space-between'
@@ -45,7 +34,7 @@ export const Button = () => {
             }}>
 
 
-        <div className="parent">
+                <div className="parent">
                     <div className='menu'>
                         <div style={{
                             display: "flex",
@@ -59,9 +48,9 @@ export const Button = () => {
                         </div>
                         <button className={userId === "Dashboard" ? 'selected' : ''} onClick={() => handleCheckbut("Dashboard")}><RxDashboard />Dashboard</button>
 
-                       
-                        <button  className={userId === "Allemployees" ? 'selected' : ''} onClick={() => handleCheckbut("Allemployees")}><BsPersonLinesFill />All employees</button>
-                        <button className={userId === "Alldepartments"  ? 'selected' : ''} onClick={() => handleCheckbut("Alldepartments")}><MdOutlineLocalFireDepartment />All departments</button>
+
+                        <button className={userId === "Allemployees" ? 'selected' : ''} onClick={() => handleCheckbut("Allemployees")}><BsPersonLinesFill />All employees</button>
+                        <button className={userId === "Alldepartments" ? 'selected' : ''} onClick={() => handleCheckbut("Alldepartments")}><MdOutlineLocalFireDepartment />All departments</button>
                         <button className={userId === "4" ? 'selected' : ''} onClick={() => handleCheckbut(4)}><GrSchedules />Attendance</button>
                         <button className={userId === "5" ? 'selected' : ''} onClick={() => handleCheckbut(5)}><CiDollar />Payroll</button>
                         <button className={userId === "6" ? 'selected' : ''} onClick={() => handleCheckbut(6)}><RxBackpack />Jobs</button>
@@ -73,31 +62,35 @@ export const Button = () => {
 
                 </div>
 
-                {!userId && <div style={{width:'82%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', }}>
+                {!userId && <div style={{ width: '82%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', }}>
 
-                    <p style={{marginBottom: '8px',
+                    <p style={{
+                        marginBottom: '8px',
                         fontFamily: 'Lexend',
                         fontSize: '40px',
                         fontWeight: '600',
-                        lineHeight: '40px'}}>Welcome</p>
-                    <p style={{ marginBottom: '30px',
+                        lineHeight: '40px'
+                    }}>Welcome</p>
+                    <p style={{
+                        marginBottom: '30px',
                         fontFamily: 'lexend',
                         fontSize: '26px',
                         lineHeight: '24px',
                         fontWeight: '300px',
-                        color: 'rgba(162, 161, 168, 1)'}}>Let's get started</p>
-                    
-                    </div>}
-              
+                        color: 'rgba(162, 161, 168, 1)'
+                    }}>Let's get started</p>
+
+                </div>}
+
                 <Outlet />
             </div>
-            
-
-               
 
 
-               
-            
+
+
+
+
+
 
 
 

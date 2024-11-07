@@ -1,20 +1,46 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Allemployee.css'
 import { CiSearch } from "react-icons/ci";
 import { CiBellOn } from "react-icons/ci";
+import { IoEyeOutline } from "react-icons/io5";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaPenToSquare } from "react-icons/fa6";
 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { VscSettings } from "react-icons/vsc";
 import { useContext } from 'react';
 import { StoreContext } from '../../store';
+import { useNavigate } from 'react-router-dom';
 const Allemployee = () => {
-
+  const navigate = useNavigate()
   const store = useContext(StoreContext)
-  const { listWorkers } = store
+  const [listWorkers, setListWorkers] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  // const { listWorkers } = store
 
-  useState(() => {
-    console.log(listWorkers)
+  const fetchOne = async () => {
+    try {
+      setIsLoading(true)
+      const respone = await fetch('https://671c5ff22c842d92c382ba18.mockapi.io/mindxpro')
+      const data = await respone.json()
+      setListWorkers(data)
+      setIsLoading(false)
+    }
+    catch {
+      console.log('error')
+    }
+
+  }
+  const showInfo = (name) => {
+    navigate(`/Homepage/Allemployees/${name}`)
+  }
+  useEffect(() => {
+    fetchOne()
   }, [])
+
+  // useState(() => {
+  //   console.log(listWorkers)
+  // }, [])
 
   return (
     <div className='cha'>
@@ -169,9 +195,9 @@ const Allemployee = () => {
             </div>
             <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
 
-            {!listWorkers && <p>please wait</p>}
+            {isLoading && <p>please wait</p>}
 
-            {listWorkers.map(item => {
+            {!isLoading && listWorkers.length > 0 && listWorkers?.map(item => {
               return (<><div className='boxcontent-1'>
                 <div style={{
                   display: 'flex',
@@ -219,10 +245,21 @@ const Allemployee = () => {
                   height: '30px'
                 }}>{item.type}</p>
                 <div style={{
-                  borderRadius:'10px', display: 'flex',
-                  alignItems: 'center', height: '30px', backgroundColor:'rgba(113, 82, 243, 0.1)', width:'70px', justifyContent:'center'
+                  width: '110px'
                 }}>
-                  <p style={{color:'rgba(113, 82, 243, 1)', fontSize:'10px'}}>{item.status}</p>
+                  <p style={{
+                    color: 'rgba(113, 82, 243, 1)', fontSize: '10px', height: '30px', backgroundColor: 'rgba(113, 82, 243, 0.1)', width: '70px', borderRadius: '10px', display: 'flex',
+                    alignItems: 'center', justifyContent: 'center'
+                  }}>{item.status}</p>
+                </div>
+
+                <div style={{
+                  height: '30px', display: 'flex',
+                  alignItems: 'center', justifyContent: 'center', gap: '20px'
+                }}>
+                  <IoEyeOutline size={20} onClick={() => showInfo(item.name)} />
+                  <FaRegTrashAlt size={20} />
+                  <FaPenToSquare size={20} />
                 </div>
 
               </div>
@@ -231,12 +268,8 @@ const Allemployee = () => {
               )
             })}
 
-            <div style={{display:'flex', width:'100%', justifyContent:'center', height:'50px', alignItems:'center'}}
-            >
-               
-
-               <p style={{color:'rgba(162, 161, 168, 1)'}}>Showing 1 to 12 out of 60 records</p>
-
+            <div style={{ display: 'flex', width: '100%', justifyContent: 'center', height: '50px', alignItems: 'center' }}>
+              <p style={{ color: 'rgba(162, 161, 168, 1)' }}>Showing 1 to 12 out of 60 records</p>
             </div>
           </div>
 
@@ -247,6 +280,8 @@ const Allemployee = () => {
 
       </div>
     </div>
+
+
   )
 }
 
