@@ -14,10 +14,13 @@
 
 .parent {
     display: flex;
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center;    /* Căn giữa theo chiều dọc */
-    height: 1024px;    
-    width: 18%;      /* Đặt chiều cao phần tử cha (ví dụ: toàn bộ chiều cao viewport) */
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    height: 1024px;
+    width: 18%;
+    /* Đặt chiều cao phần tử cha (ví dụ: toàn bộ chiều cao viewport) */
 }
 
 button {

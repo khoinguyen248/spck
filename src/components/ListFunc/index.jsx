@@ -17,14 +17,25 @@ import { StoreContext } from '../../store';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 
 export const Button = () => {
+
+
+
+
     const navigate = useNavigate()
     const { userId } = useParams()
-    console.log("🚀 ~ Button ~ userId:", userId)
-    
+
+
+
     const handleCheckbut = (int) => {
+
         navigate(`/Homepage/${int}`)
+
+
     };
-   return (
+
+
+
+    return (
         <>
             <div style={{
                 width: '1500px',
@@ -50,7 +61,7 @@ export const Button = () => {
 
 
                         <button className={userId === "Allemployees" ? 'selected' : ''} onClick={() => handleCheckbut("Allemployees")}><BsPersonLinesFill />All employees</button>
-                        <button className={userId === "Alldepartments" ? 'selected' : ''} onClick={() => handleCheckbut("Alldepartments")}><MdOutlineLocalFireDepartment />All departments</button>
+                        <button className={userId === "AllDepartments" ? 'selected' : ''} onClick={() => handleCheckbut("AllDepartments")}><MdOutlineLocalFireDepartment />All departments</button>
                         <button className={userId === "4" ? 'selected' : ''} onClick={() => handleCheckbut(4)}><GrSchedules />Attendance</button>
                         <button className={userId === "5" ? 'selected' : ''} onClick={() => handleCheckbut(5)}><CiDollar />Payroll</button>
                         <button className={userId === "6" ? 'selected' : ''} onClick={() => handleCheckbut(6)}><RxBackpack />Jobs</button>

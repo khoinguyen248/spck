@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import './Allemployee.css'
 import { CiSearch } from "react-icons/ci";
 import { CiBellOn } from "react-icons/ci";
@@ -10,9 +11,9 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { VscSettings } from "react-icons/vsc";
 import { useContext } from 'react';
 import { StoreContext } from '../../store';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 const Allemployee = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const store = useContext(StoreContext)
   const [listWorkers, setListWorkers] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -64,7 +65,7 @@ const Allemployee = () => {
               textAlign: 'left',
               color: 'rgba(162, 161, 168, 1)'
 
-            }}>All employees information</p>
+            }}  >All employees information</p>
           </div>
 
           <div className='header-2' style={{
@@ -117,23 +118,27 @@ const Allemployee = () => {
 
             <div className='searchbar2'
               style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-              <button style={{
+              <button
+                onClick={() => {
+                  navigate("/Homepage/Allemployees/addemployee")
+                }}
+                style={{
 
-                width: '250px',
-                height: '50px',
-                paddingLeft: '20px',
-                borderRadius: '10px',
+                  width: '250px',
+                  height: '50px',
+                  paddingLeft: '20px',
+                  borderRadius: '10px',
 
-                fontSize: '16px',
-                fontWeight: '300',
-                lineHeight: '24px',
-                display: 'flex',
-                alignItems: 'center',
-                backgroundColor: 'rgba(113, 82, 243, 1)',
-                color: 'white'
+                  fontSize: '16px',
+                  fontWeight: '300',
+                  lineHeight: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  backgroundColor: 'rgba(113, 82, 243, 1)',
+                  color: 'white'
 
 
-              }}
+                }}
               ><IoIosAddCircleOutline /> <span>Add New Employees</span></button>
               <button style={{
 
@@ -245,21 +250,10 @@ const Allemployee = () => {
                   height: '30px'
                 }}>{item.type}</p>
                 <div style={{
-                  width: '110px'
+                  borderRadius: '10px', display: 'flex',
+                  alignItems: 'center', height: '30px', backgroundColor: 'rgba(113, 82, 243, 0.1)', width: '70px', justifyContent: 'center'
                 }}>
-                  <p style={{
-                    color: 'rgba(113, 82, 243, 1)', fontSize: '10px', height: '30px', backgroundColor: 'rgba(113, 82, 243, 0.1)', width: '70px', borderRadius: '10px', display: 'flex',
-                    alignItems: 'center', justifyContent: 'center'
-                  }}>{item.status}</p>
-                </div>
-
-                <div style={{
-                  height: '30px', display: 'flex',
-                  alignItems: 'center', justifyContent: 'center', gap: '20px'
-                }}>
-                  <IoEyeOutline size={20} onClick={() => showInfo(item.name)} />
-                  <FaRegTrashAlt size={20} />
-                  <FaPenToSquare size={20} />
+                  <p style={{ color: 'rgba(113, 82, 243, 1)', fontSize: '10px' }}>{item.status}</p>
                 </div>
 
               </div>
@@ -268,8 +262,12 @@ const Allemployee = () => {
               )
             })}
 
-            <div style={{ display: 'flex', width: '100%', justifyContent: 'center', height: '50px', alignItems: 'center' }}>
+            <div style={{ display: 'flex', width: '100%', justifyContent: 'center', height: '50px', alignItems: 'center' }}
+            >
+
+
               <p style={{ color: 'rgba(162, 161, 168, 1)' }}>Showing 1 to 12 out of 60 records</p>
+
             </div>
           </div>
 
