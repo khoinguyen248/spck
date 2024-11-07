@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './button.css';
 import logo from './logo2.png';
 import { RxDashboard } from "react-icons/rx";
@@ -12,6 +12,8 @@ import { MdEventNote } from "react-icons/md";
 import { LuCalendarDays } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 
+import { StoreContext } from '../../store';
+
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 
 export const Button = () => {
@@ -19,15 +21,15 @@ export const Button = () => {
 
 
    
-   
    const navigate = useNavigate()
    const {userId} = useParams()
-
+   
+   
 
     const handleCheckbut = (int) => {
        
         navigate(`/Homepage/${int}`)
-    
+        
         
     };
 

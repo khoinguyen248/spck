@@ -20,22 +20,24 @@ export const Mainpath = () => {
       try{
         const respone = await fetch('https://671c5ff22c842d92c382ba18.mockapi.io/mindxpro')
         const data = await respone.json()
-        console.log(data)
-
+       setListWorkers(data)
+        
       }
 
       catch{
 
       }
-
+       
     }
 
     useEffect(() => {
         setCurrentPage(userId);
+       
     }, [userId])
 
-   if(userId === "Allemployees"){
-        fetchOne()
+   if(userId == "Allemployees"){
+      fetchOne()
+      
    }
     
   return (
