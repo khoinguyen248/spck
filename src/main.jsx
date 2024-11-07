@@ -47,8 +47,9 @@ const router = createBrowserRouter([
     element: <Otp />
   },
   {
-    path: "/allemployee/addemployee",
-    element: <AddEmployee />
+    path: "/Homepage/Allemployees/addemployee",
+    element:
+      <AddEmployee />
   }
 ]);
 
