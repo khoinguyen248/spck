@@ -33,7 +33,7 @@ const Allemployee = () => {
 
   }
   const showInfo = (name) => {
-    navigate(`/Homepage/Allemployees/${name}`)
+    navigate(`/Homepage/Allemployee/${name}`)
   }
   useEffect(() => {
     fetchOne()
@@ -120,7 +120,7 @@ const Allemployee = () => {
               style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
               <button
                 onClick={() => {
-                  navigate("/Homepage/Allemployees/addemployee")
+                  navigate("/Homepage/Allemployee/addemployee")
                 }}
                 style={{
 

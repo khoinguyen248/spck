@@ -60,7 +60,7 @@ export const Button = () => {
                         <button className={userId === "Dashboard" ? 'selected' : ''} onClick={() => handleCheckbut("Dashboard")}><RxDashboard />Dashboard</button>
 
 
-                        <button className={userId === "Allemployees" ? 'selected' : ''} onClick={() => handleCheckbut("Allemployees")}><BsPersonLinesFill />All employees</button>
+                        <button className={userId === "Allemployee" ? 'selected' : ''} onClick={() => handleCheckbut("Allemployee")}><BsPersonLinesFill />All employees</button>
                         <button className={userId === "AllDepartments" ? 'selected' : ''} onClick={() => handleCheckbut("AllDepartments")}><MdOutlineLocalFireDepartment />All departments</button>
                         <button className={userId === "4" ? 'selected' : ''} onClick={() => handleCheckbut(4)}><GrSchedules />Attendance</button>
                         <button className={userId === "5" ? 'selected' : ''} onClick={() => handleCheckbut(5)}><CiDollar />Payroll</button>

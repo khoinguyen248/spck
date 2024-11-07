@@ -54,11 +54,7 @@ const router = createBrowserRouter([
     path: "/otp",
     element: <Otp />
   },
-  {
-    path: "/Homepage/Allemployees/addemployee",
-    element:
-      <AddEmployee />
-  }
+  
 ]);
 
 createRoot(document.getElementById('root')).render(
