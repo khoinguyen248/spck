@@ -3,7 +3,8 @@ import React, { useEffect, useContext } from 'react'
 import { StoreContext } from '../../store';
 import { useParams } from 'react-router-dom';
 import Allemployee from './allemployee';
-import Alldepartment from './Alldepartment';
+
+import AllDepartments from '../AllDepartments/AllDepartments';
 
 
 
@@ -43,7 +44,7 @@ export const Mainpath = () => {
   return (
     <>
       {userId === "Allemployees" && <Allemployee />}
-      {userId === "Alldepartments" && <Alldepartment />}
+      {userId === "AllDepartments" && <AllDepartments />}
     </>
   )
 }
