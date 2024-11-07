@@ -9,6 +9,7 @@ export const StoreContext = createContext({
 const StoreProvider = ({ children }) => {
     // thuc hien cac chuc nang filter 
     const [currentPage, setCurrentPage] = useState(null);
+    const [currentPage2, setCurrentPage2] = useState(null);
     // truyền state và dispatch xuống dưới
     const [listWorkers, setListWorkers] = useState([]);
     return <StoreContext.Provider value={
@@ -21,7 +22,10 @@ const StoreProvider = ({ children }) => {
 
             setListWorkers: (listWorkers) => {
                 setListWorkers(listWorkers);
-            }
+            },
+            setCurrentPage2:  (currentPage2) => {
+                setCurrentPage(currentPage2);
+            },
         }
     }>{children}</StoreContext.Provider>;
 }

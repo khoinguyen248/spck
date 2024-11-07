@@ -14,6 +14,7 @@ import { Otp } from './Otp.jsx'
 
 import { Mainpath } from './components/Coms/Mainpath.jsx'
 import AddEmployee from './components/AllEmployees/AddEmployee/AddEmployee.jsx'
+import Allemployeesmall from './components/Coms/Allemployeesmall.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,8 +33,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":userId",
-        element: <Mainpath />
-      }
+        element: <Mainpath />,
+        children: [
+          {
+            path: ":employeeId",
+            element: <Allemployeesmall /> // Component con của Allemployee
+          }
+        ]
+      },
+     
     ]
   },
 

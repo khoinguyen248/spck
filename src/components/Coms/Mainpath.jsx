@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 
 import { StoreContext } from '../../store';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import Allemployee from './allemployee';
 
 import AllDepartments from '../AllDepartments/AllDepartments';

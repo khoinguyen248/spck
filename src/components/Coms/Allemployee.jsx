@@ -3,19 +3,45 @@ import { useNavigate } from 'react-router-dom';
 import './Allemployee.css'
 import { CiSearch } from "react-icons/ci";
 import { CiBellOn } from "react-icons/ci";
+import { IoEyeOutline } from "react-icons/io5";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaPenToSquare } from "react-icons/fa6";
 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { VscSettings } from "react-icons/vsc";
 import { useContext } from 'react';
 import { StoreContext } from '../../store';
+import { useEffect } from 'react';
 const Allemployee = () => {
   const navigate = useNavigate();
   const store = useContext(StoreContext)
-  const { listWorkers } = store
+  const [listWorkers, setListWorkers] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  // const { listWorkers } = store
 
-  useState(() => {
-    console.log(listWorkers)
+  const fetchOne = async () => {
+    try {
+      setIsLoading(true)
+      const respone = await fetch('https://671c5ff22c842d92c382ba18.mockapi.io/mindxpro')
+      const data = await respone.json()
+      setListWorkers(data)
+      setIsLoading(false)
+    }
+    catch {
+      console.log('error')
+    }
+
+  }
+  const showInfo = (name) => {
+    navigate(`/Homepage/Allemployees/${name}`)
+  }
+  useEffect(() => {
+    fetchOne()
   }, [])
+
+  // useState(() => {
+  //   console.log(listWorkers)
+  // }, [])
 
   return (
     <div className='cha'>
@@ -174,9 +200,9 @@ const Allemployee = () => {
             </div>
             <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
 
-            {!listWorkers && <p>please wait</p>}
+            {isLoading && <p>please wait</p>}
 
-            {listWorkers.map(item => {
+            {!isLoading && listWorkers.length > 0 && listWorkers?.map(item => {
               return (<><div className='boxcontent-1'>
                 <div style={{
                   display: 'flex',
@@ -252,6 +278,8 @@ const Allemployee = () => {
 
       </div>
     </div>
+
+
   )
 }
 
