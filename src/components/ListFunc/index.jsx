@@ -47,7 +47,7 @@ export const Button = () => {
 
                 <div className="parent">
                     <div className='menu'>
-                        <div style={{
+                        <div onClick={() => navigate(`/Homepage`)} style={{
                             display: "flex",
                             alignItems: 'center',
                             width: '90%',
