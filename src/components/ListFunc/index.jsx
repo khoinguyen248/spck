@@ -62,8 +62,8 @@ export const Button = () => {
 
                         <button className={userId === "Allemployee" ? 'selected' : ''} onClick={() => handleCheckbut("Allemployee")}><BsPersonLinesFill />All employees</button>
                         <button className={userId === "AllDepartments" ? 'selected' : ''} onClick={() => handleCheckbut("AllDepartments")}><MdOutlineLocalFireDepartment />All departments</button>
-                        <button className={userId === "4" ? 'selected' : ''} onClick={() => handleCheckbut(4)}><GrSchedules />Attendance</button>
-                        <button className={userId === "5" ? 'selected' : ''} onClick={() => handleCheckbut(5)}><CiDollar />Payroll</button>
+                        <button className={userId === "Attendance" ? 'selected' : ''} onClick={() => handleCheckbut("Attendance")}><GrSchedules />Attendance</button>
+                        <button className={userId === "Payroll" ? 'selected' : ''} onClick={() => handleCheckbut("Payroll")}><CiDollar />Payroll</button>
                         <button className={userId === "6" ? 'selected' : ''} onClick={() => handleCheckbut(6)}><RxBackpack />Jobs</button>
                         <button className={userId === "7" ? 'selected' : ''} onClick={() => handleCheckbut(7)}><IoPersonAddOutline />Candidates</button>
                         <button className={userId === "8" ? 'selected' : ''} onClick={() => handleCheckbut(8)}><MdEventNote />Leaves</button>

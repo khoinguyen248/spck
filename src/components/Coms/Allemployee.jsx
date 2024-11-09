@@ -200,10 +200,10 @@ const Allemployee = () => {
             </div>
             <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
 
-            {isLoading && <p>please wait</p>}
+            {isLoading && <p style={{margin:'auto', color:'rgba(162, 161, 168, 1)'}}>please wait</p>}
 
             {!isLoading && listWorkers.length > 0 && listWorkers?.map(item => {
-              return (<><div className='boxcontent-1'>
+              return (<><div key={item.id} className='boxcontent-1'>
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',

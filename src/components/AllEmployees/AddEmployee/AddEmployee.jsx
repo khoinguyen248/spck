@@ -16,7 +16,9 @@ const AddEmployee = () => {
     };
     return (
         <>
-            <div className="addEmployee">
+
+        <div className='cha'>
+        <div className="addEmployee">
                 <div className="topList">
                     {nowList == 1 ? < div onClick={() => { setnowList(1) }} className="topDetailOn">
                         <FaUser />
@@ -142,6 +144,8 @@ const AddEmployee = () => {
                 }
 
             </div >
+        </div>
+            
         </>
     )
 }

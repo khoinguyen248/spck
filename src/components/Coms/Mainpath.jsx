@@ -5,6 +5,8 @@ import { Outlet, useParams } from 'react-router-dom';
 import Allemployee from './allemployee';
 
 import AllDepartments from '../AllDepartments/AllDepartments';
+import Attendance from './Attendance';
+import Payroll from './Payroll';
 
 
 
@@ -28,8 +30,13 @@ export const Mainpath = () => {
   return (
     <>
 
-      {!employeeId && <> {userId === "Allemployee" && <Allemployee />}
-        {userId === "AllDepartments" && <AllDepartments />}</>}
+      {!employeeId && <>
+        {userId === "Allemployee" && <Allemployee />}
+        {userId === "AllDepartments" && <AllDepartments />}
+        {userId === "Attendance" && <Attendance/>}
+        {userId === "Payroll" && <Payroll />}
+
+      </>}
 
 
       <Outlet />
