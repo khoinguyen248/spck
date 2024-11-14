@@ -16,6 +16,7 @@ import { useEffect } from 'react';
 const AllEmployee = () => {
   const navigate = useNavigate();
   const store = useContext(StoreContext)
+const { setPerson } = store
   const [listWorkers, setListWorkers] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   // const { listWorkers } = store
@@ -254,11 +255,17 @@ const AllEmployee = () => {
                   <p style={{ color: 'rgba(113, 82, 243, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'}}>{item.status}</p>
                
                   <div style={{
-                 
+                    marginLeft:'40px',
+                    display:'flex',
+                    gap:'20px', alignItems:"center"
                   }}>
-                <IoEyeOutline/>
-                <FaRegTrashAlt/>
-                <FaPenToSquare/>
+                <IoEyeOutline size={22} style={{cursor:'pointer'}}  onClick={() => {
+                  setPerson(item)
+                  navigate(`/Homepage/Allemployee/${item.name} `)
+
+                }}/>
+                <FaRegTrashAlt size={22}/>
+                <FaPenToSquare size={22}/>
               </div>
 
 
