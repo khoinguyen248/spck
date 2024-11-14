@@ -6,18 +6,13 @@ import { Outlet, useParams } from 'react-router-dom';
 import AllDepartments from '../AllDepartments/AllDepartments';
 import Attendance from './Attendance';
 import Payroll from './Payroll';
-import { Allemployee } from './allemployee';
-
-
-
+import AllEmployee from './AllEmployeeTest';
 
 export const Mainpath = () => {
   const store = useContext(StoreContext)
   const { setCurrentPage } = store;
   const { setListWorkers } = store;
   const { userId } = useParams()
-
-
 
   useEffect(() => {
     setCurrentPage(userId);
@@ -31,7 +26,7 @@ export const Mainpath = () => {
     <>
 
       {!employeeId && <>
-        {userId === "Allemployee" && <Allemployee />}
+        {userId === "Allemployee" && <AllEmployee />}
         {userId === "AllDepartments" && <AllDepartments />}
         {userId === "Attendance" && <Attendance/>}
         {userId === "Payroll" && <Payroll />}
