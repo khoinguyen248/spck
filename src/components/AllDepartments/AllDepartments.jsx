@@ -20,7 +20,8 @@ const AllDepartments = () => {
     })
     return (
         <>
-            <div className="AllDepartments">
+        <div className="cha">
+        <div className="AllDepartments">
                 <div className="boxSearch">
                     <CiSearch />
                     <input className="search" placeholder="Search" type="text" />
@@ -62,6 +63,8 @@ const AllDepartments = () => {
                 </div>
 
             </div>
+        </div>
+            
         </>
     )
 }
