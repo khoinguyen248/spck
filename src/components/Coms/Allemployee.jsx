@@ -12,7 +12,8 @@ import { VscSettings } from "react-icons/vsc";
 import { useContext } from 'react';
 import { StoreContext } from '../../store';
 import { useEffect } from 'react';
-const Allemployee = () => {
+
+export const Allemployee = () => {
   const navigate = useNavigate();
   const store = useContext(StoreContext)
   const [listWorkers, setListWorkers] = useState([])
@@ -249,12 +250,17 @@ const Allemployee = () => {
                   alignItems: 'center',
                   height: '30px'
                 }}>{item.type}</p>
-                <div style={{
-                  borderRadius: '10px', display: 'flex',
-                  alignItems: 'center', height: '30px', backgroundColor: 'rgba(113, 82, 243, 0.1)', width: '70px', justifyContent: 'center'
-                }}>
-                  <p style={{ color: 'rgba(113, 82, 243, 1)', fontSize: '10px' }}>{item.status}</p>
-                </div>
+               
+                  <p style={{ color: 'rgba(113, 82, 243, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'}}>{item.status}</p>
+               
+                  <div style={{
+                 
+                  }}>
+                <IoEyeOutline/>
+                <FaRegTrashAlt/>
+                <FaPenToSquare/>
+              </div>
+
 
               </div>
                 <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
@@ -267,6 +273,8 @@ const Allemployee = () => {
 
 
               <p style={{ color: 'rgba(162, 161, 168, 1)' }}>Showing 1 to 12 out of 60 records</p>
+
+              
 
             </div>
           </div>
@@ -283,4 +291,3 @@ const Allemployee = () => {
   )
 }
 
-export default Allemployee

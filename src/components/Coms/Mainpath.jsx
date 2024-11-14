@@ -2,11 +2,11 @@ import React, { useEffect, useContext } from 'react'
 
 import { StoreContext } from '../../store';
 import { Outlet, useParams } from 'react-router-dom';
-import Allemployee from './allemployee';
 
 import AllDepartments from '../AllDepartments/AllDepartments';
 import Attendance from './Attendance';
 import Payroll from './Payroll';
+import { Allemployee } from './allemployee';
 
 
 
@@ -37,6 +37,8 @@ export const Mainpath = () => {
         {userId === "Payroll" && <Payroll />}
 
       </>}
+
+      
 
 
       <Outlet />
