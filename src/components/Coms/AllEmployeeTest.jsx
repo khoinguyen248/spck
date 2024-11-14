@@ -13,7 +13,7 @@ import { useContext } from 'react';
 import { StoreContext } from '../../store';
 import { useEffect } from 'react';
 
-export const Allemployee = () => {
+const AllEmployee = () => {
   const navigate = useNavigate();
   const store = useContext(StoreContext)
   const [listWorkers, setListWorkers] = useState([])
@@ -291,3 +291,4 @@ export const Allemployee = () => {
   )
 }
 
+export default AllEmployee
