@@ -14,8 +14,17 @@ import { StoreContext } from '../../store';
 import { useEffect } from 'react';
 
 const AllEmployee = () => {
+  const pages = [1,2,3,4,5]
+
+  const [list, setList] = useState(1)
+  const [butt, setButt] = useState(1)
   const navigate = useNavigate();
   const store = useContext(StoreContext)
+
+  const snitching = (int) => {
+      setList(int)
+      setButt(int)
+  }
 const { setPerson } = store
   const [listWorkers, setListWorkers] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -39,7 +48,7 @@ const { setPerson } = store
   }
   useEffect(() => {
     fetchOne()
-  }, [])
+  }, list)
 
   // useState(() => {
   //   console.log(listWorkers)
@@ -202,86 +211,418 @@ const { setPerson } = store
             </div>
             <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
 
-            {isLoading && <p style={{margin:'auto', color:'rgba(162, 161, 168, 1)'}}>please wait</p>}
+            {list === 1 && <>
+              {isLoading && <p style={{margin:'auto', color:'rgba(162, 161, 168, 1)'}}>please wait</p>}
 
-            {!isLoading && listWorkers.length > 0 && listWorkers?.map(item => {
-              return (<><div key={item.id} className='boxcontent-1'>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '3px',
-                  width: '252px',
-                  height: '30px'
+{!isLoading && listWorkers.length > 0 && listWorkers.slice(1, 12)?.map(item => {
+  return (<><div key={item.id} className='boxcontent-1'>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '3px',
+      width: '252px',
+      height: '30px'
 
-                }}>
-                  <img src={item.img} alt="" style={{
-                    height: '30px',
-                    width: '30px',
-                    borderRadius: '50%'
-                  }} />
-                  <p >{item.name}</p>
+    }}>
+      <img src={item.img} alt="" style={{
+        height: '30px',
+        width: '30px',
+        borderRadius: '50%'
+      }} />
+      <p >{item.name}</p>
 
-                </div>
+    </div>
 
-                <p style={{
-                  width: '132px',
-                  textAlign: 'left',
-                  display: 'flex',
-                  alignItems: 'center',
-                  height: '30px'
-                }}>{item.emnums}</p>
-                <p style={{
-                  width: '172px',
-                  textAlign: 'left',
-                  display: 'flex',
-                  alignItems: 'center',
-                  height: '30px'
-                }}>{item.department}</p>
-                <p style={{
-                  width: '170px',
-                  textAlign: 'left',
-                  display: 'flex',
-                  alignItems: 'center',
-                  height: '30px'
-                }}>{item.designation}</p>
-                <p style={{
-                  width: '112px',
+    <p style={{
+      width: '132px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.emnums}</p>
+    <p style={{
+      width: '172px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.department}</p>
+    <p style={{
+      width: '170px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.designation}</p>
+    <p style={{
+      width: '112px',
 
-                  display: 'flex',
-                  alignItems: 'center',
-                  height: '30px'
-                }}>{item.type}</p>
-               
-                  <p style={{ color: 'rgba(113, 82, 243, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'}}>{item.status}</p>
-               
-                  <div style={{
-                    marginLeft:'40px',
-                    display:'flex',
-                    gap:'20px', alignItems:"center"
-                  }}>
-                <IoEyeOutline size={22} style={{cursor:'pointer'}}  onClick={() => {
-                  setPerson(item)
-                  navigate(`/Homepage/Allemployee/${item.name} `)
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.type}</p>
+   
+   <p style={ item.status == "Permanent" ?    { color: 'rgba(113, 82, 243, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'} : {color: 'rgba(239, 190, 18, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(239, 190, 18, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'}}>{item.status}</p>
+   
+      <div style={{
+        marginLeft:'40px',
+        display:'flex',
+        gap:'20px', alignItems:"center"
+      }}>
+    <IoEyeOutline size={22} style={{cursor:'pointer'}}  onClick={() => {
+      setPerson(item)
+      navigate(`/Homepage/Allemployee/${item.name} `)
 
-                }}/>
-                <FaRegTrashAlt size={22}/>
-                <FaPenToSquare size={22}/>
-              </div>
+    }}/>
+    <FaRegTrashAlt size={22}/>
+    <FaPenToSquare size={22}/>
+  </div>
 
 
-              </div>
-                <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
-              </>
-              )
-            })}
+  </div>
+    <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
+  </>
+  )
+})}
+            
+            
+            </>}
 
-            <div style={{ display: 'flex', width: '100%', justifyContent: 'center', height: '50px', alignItems: 'center' }}
+
+            {list === 2 && <>
+              {isLoading && <p style={{margin:'auto', color:'rgba(162, 161, 168, 1)'}}>please wait</p>}
+
+{!isLoading && listWorkers.length > 0 && listWorkers.slice(13, 24)?.map(item => {
+  return (<><div key={item.id} className='boxcontent-1'>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '3px',
+      width: '252px',
+      height: '30px'
+
+    }}>
+      <img src={item.img} alt="" style={{
+        height: '30px',
+        width: '30px',
+        borderRadius: '50%'
+      }} />
+      <p >{item.name}</p>
+
+    </div>
+
+    <p style={{
+      width: '132px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.emnums}</p>
+    <p style={{
+      width: '172px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.department}</p>
+    <p style={{
+      width: '170px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.designation}</p>
+    <p style={{
+      width: '112px',
+
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.type}</p>
+   
+   <p style={ item.status == "Permanent" ?    { color: 'rgba(113, 82, 243, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'} : {color: 'rgba(239, 190, 18, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(239, 190, 18, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'}}>{item.status}</p>
+   
+      <div style={{
+        marginLeft:'40px',
+        display:'flex',
+        gap:'20px', alignItems:"center"
+      }}>
+    <IoEyeOutline size={22} style={{cursor:'pointer'}}  onClick={() => {
+      setPerson(item)
+      navigate(`/Homepage/Allemployee/${item.name} `)
+
+    }}/>
+    <FaRegTrashAlt size={22}/>
+    <FaPenToSquare size={22}/>
+  </div>
+
+
+  </div>
+    <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
+  </>
+  )
+})}
+            
+            
+            </>}
+
+            {list === 3 && <>
+              {isLoading && <p style={{margin:'auto', color:'rgba(162, 161, 168, 1)'}}>please wait</p>}
+
+{!isLoading && listWorkers.length > 0 && listWorkers.slice(25, 36)?.map(item => {
+  return (<><div key={item.id} className='boxcontent-1'>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '3px',
+      width: '252px',
+      height: '30px'
+
+    }}>
+      <img src={item.img} alt="" style={{
+        height: '30px',
+        width: '30px',
+        borderRadius: '50%'
+      }} />
+      <p >{item.name}</p>
+
+    </div>
+
+    <p style={{
+      width: '132px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.emnums}</p>
+    <p style={{
+      width: '172px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.department}</p>
+    <p style={{
+      width: '170px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.designation}</p>
+    <p style={{
+      width: '112px',
+
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.type}</p>
+   
+   <p style={ item.status == "Permanent" ?    { color: 'rgba(113, 82, 243, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'} : {color: 'rgba(239, 190, 18, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(239, 190, 18, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'}}>{item.status}</p>
+   
+      <div style={{
+        marginLeft:'40px',
+        display:'flex',
+        gap:'20px', alignItems:"center"
+      }}>
+    <IoEyeOutline size={22} style={{cursor:'pointer'}}  onClick={() => {
+      setPerson(item)
+      navigate(`/Homepage/Allemployee/${item.name} `)
+
+    }}/>
+    <FaRegTrashAlt size={22}/>
+    <FaPenToSquare size={22}/>
+  </div>
+
+
+  </div>
+    <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
+  </>
+  )
+})}
+            
+            
+            
+            </>}
+            
+            {list === 4 && <>
+              {isLoading && <p style={{margin:'auto', color:'rgba(162, 161, 168, 1)'}}>please wait</p>}
+
+{!isLoading && listWorkers.length > 0 && listWorkers.slice(37, 48)?.map(item => {
+  return (<><div key={item.id} className='boxcontent-1'>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '3px',
+      width: '252px',
+      height: '30px'
+
+    }}>
+      <img src={item.img} alt="" style={{
+        height: '30px',
+        width: '30px',
+        borderRadius: '50%'
+      }} />
+      <p >{item.name}</p>
+
+    </div>
+
+    <p style={{
+      width: '132px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.emnums}</p>
+    <p style={{
+      width: '172px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.department}</p>
+    <p style={{
+      width: '170px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.designation}</p>
+    <p style={{
+      width: '112px',
+
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.type}</p>
+   
+   <p style={ item.status == "Permanent" ?    { color: 'rgba(113, 82, 243, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'} : {color: 'rgba(239, 190, 18, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(239, 190, 18, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'}}>{item.status}</p>
+   
+      <div style={{
+        marginLeft:'40px',
+        display:'flex',
+        gap:'20px', alignItems:"center"
+      }}>
+    <IoEyeOutline size={22} style={{cursor:'pointer'}}  onClick={() => {
+      setPerson(item)
+      navigate(`/Homepage/Allemployee/${item.name} `)
+
+    }}/>
+    <FaRegTrashAlt size={22}/>
+    <FaPenToSquare size={22}/>
+  </div>
+
+
+  </div>
+    <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
+  </>
+  )
+})}
+            
+            
+            
+            </>}
+
+            {list === 5 && <>
+              {isLoading && <p style={{margin:'auto', color:'rgba(162, 161, 168, 1)'}}>please wait</p>}
+
+{!isLoading && listWorkers.length > 0 && listWorkers.slice(49, 60)?.map(item => {
+  return (<><div key={item.id} className='boxcontent-1'>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '3px',
+      width: '252px',
+      height: '30px'
+
+    }}>
+      <img src={item.img} alt="" style={{
+        height: '30px',
+        width: '30px',
+        borderRadius: '50%'
+      }} />
+      <p >{item.name}</p>
+
+    </div>
+
+    <p style={{
+      width: '132px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.emnums}</p>
+    <p style={{
+      width: '172px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.department}</p>
+    <p style={{
+      width: '170px',
+      textAlign: 'left',
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.designation}</p>
+    <p style={{
+      width: '112px',
+
+      display: 'flex',
+      alignItems: 'center',
+      height: '30px'
+    }}>{item.type}</p>
+   
+      <p style={ item.status == "Permanent" ?    { color: 'rgba(113, 82, 243, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'} : {color: 'rgba(239, 190, 18, 1)', fontSize: '10px', display:'flex', alignItems:'center', backgroundColor:'rgba(239, 190, 18, 0.1)', borderRadius:'10px', width:'70px', justifyContent:'center'}}>{item.status}</p>
+   
+      <div style={{
+        marginLeft:'40px',
+        display:'flex',
+        gap:'20px', alignItems:"center"
+      }}>
+    <IoEyeOutline size={22} style={{cursor:'pointer'}}  onClick={() => {
+      setPerson(item)
+      navigate(`/Homepage/Allemployee/${item.name} `)
+
+    }}/>
+    <FaRegTrashAlt size={22}/>
+    <FaPenToSquare size={22}/>
+  </div>
+
+
+  </div>
+    <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)" }} />
+  </>
+  )
+})}
+            
+            
+            
+            </>}
+
+            <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', height: '50px', alignItems: 'center' }}
             >
 
 
               <p style={{ color: 'rgba(162, 161, 168, 1)' }}>Showing 1 to 12 out of 60 records</p>
 
-              
+              <div style={{display:'flex', gap:'4px'}}>
+                 {pages?.map(item => {
+                 
+                    return <button
+                    style={{
+                      padding: '12px',
+                      backgroundColor:'ư',
+                      color: 'black',
+                      border: butt === item ? 'solid 1px rgba(113, 82, 243, 1)' : 'none',
+                      borderRadius: butt === item ? '8px' : 'none',
+                      cursor: 'pointer'
+                    }}
+                    
+                    onClick={() => {snitching(item)}}>{item}</button>
+
+                 })}              
+              </div>
 
             </div>
           </div>
