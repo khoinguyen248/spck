@@ -17,7 +17,8 @@ const PersonalInf = () => {
   const store = useContext(StoreContext)
   const { person } = store
   const [bigcolor, setBigcolor] = useState("Profile")
-  const [minimain, setMinimain] = useState("")
+  const [smallcolor, setSmallcolor] = useState("Personal Information")
+  const [minimain, setMinimain] = useState("Personal Information")
   const profile = ["Personal Information", "Professional Information", "Documents", "Account"]
   const [menu, setMenu] = useState("Profile")
 
@@ -30,6 +31,7 @@ const PersonalInf = () => {
 
   const toogleParts2 = (charr) => {
     setMinimain(charr)
+    setSmallcolor(charr)
   }
 
   return (
@@ -161,12 +163,15 @@ const PersonalInf = () => {
                 flexDirection: 'column',
                 width: '20%',
                 marginTop: '20px',
-
+                borderRadius:'10px',
+                overflowX: 'hidden', /* Ngăn tràn theo chiều ngang */
+overflowY: 'hidden',
+border:'1px solid rgba(162, 161, 168, 0.2)', marginBottom:'20px'
 
               }}>
 
                 {bigtoogle.map(item => {
-                  return <><button style={bigcolor === item ? { color: 'red' } : { color: 'blue' }} onClick={() => {
+                  return <><button style={bigcolor === item ? { display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 1)', color:'white', width:"100%" } : { display:'flex', alignItems:'center', width:"100%" }} onClick={() => {
                     toogleParts(item)
 
                   }}>{item}</button></>
@@ -191,7 +196,7 @@ const PersonalInf = () => {
                     {profile.map(item => {
                       return <button onClick={() => {
                         toogleParts2(item)
-                      }}>{item}</button>
+                      }} style={smallcolor === item ? {display:'flex', alignItems:'center', justifyContent:'center', borderBottom:'2px solid rgba(113, 82, 243, 1)', color:'rgba(113, 82, 243, 1)' } : { justifyContent:'center',display:'flex', alignItems:'center' }}>{item}</button>
                     })}
 
 
@@ -200,89 +205,293 @@ const PersonalInf = () => {
                   {
                     minimain === "Personal Information" &&
                     <>
-                      <div style={{width:'100%', display:'flex', flexDirection:'column'}}>
+                      <div style={{ width: '100%', display: 'flex', flexDirection: 'column' ,marginTop: '20px'}}>
 
-                        <div style={{width:'100%', display:'flex', justifyContent:'space-between', marginBottom:'20px'}}>
-                           <div style={{textAlign:'left', width:'45%'}}>
-                            <p>First Name</p>
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>First Name</p>
                             <p>{person.firstname}</p>
-                           </div>
-                           <div style={{textAlign:'left', width:'45%'}}>
-                           <p>Last Name</p>
-                           <p>{person.lastname}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Last Name</p>
+                            <p>{person.lastname}</p>
 
-                           </div>
+                          </div>
                         </div>
                         <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
 
 
-                        <div style={{width:'100%', display:'flex', justifyContent:'space-between', marginBottom:'20px', marginTop:'20px'}}>
-                        <div style={{textAlign:'left', width:'45%', }}>
-                            <p>Mobile Number</p>
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', marginTop: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%', }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Mobile Number</p>
                             <p>{person.mobilenumber}</p>
-                           </div>
-                           <div style={{textAlign:'left', width:'45%'}}>
-                           <p>Last Name</p>
-                           <p>{person.email}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Last Name</p>
+                            <p>{person.email}</p>
 
-                           </div>
+                          </div>
                         </div>
 
                         <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
-                        <div style={{width:'100%', display:'flex', justifyContent:'space-between', marginBottom:'20px', marginTop:'20px'}}>
-                        <div style={{textAlign:'left', width:'45%', }}>
-                            <p>Date of Birth</p>
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', marginTop: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%', }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Date of Birth</p>
                             <p>{person.DOB}</p>
-                           </div>
-                           <div style={{textAlign:'left', width:'45%'}}>
-                           <p>Martial Status</p>
-                           <p>{person.marriedstatus}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Martial Status</p>
+                            <p>{person.marriedstatus}</p>
 
-                           </div>
+                          </div>
                         </div >
 
                         <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
-                        <div style={{width:'100%', display:'flex', justifyContent:'space-between', marginBottom:'20px', marginTop:'20px'}}>
-                        <div style={{textAlign:'left', width:'45%', }}>
-                            <p>Gender</p>
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', marginTop: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%', }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Gender</p>
                             <p>{person.gender}</p>
-                           </div>
-                           <div style={{textAlign:'left', width:'45%'}}>
-                           <p>Nationality</p>
-                           <p>{person.state}</p>
-
-                           </div>
-                        </div >
-
-                        <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
-                        <div style={{width:'100%', display:'flex', justifyContent:'space-between', marginBottom:'20px', marginTop:'20px'}}>
-                        <div style={{textAlign:'left', width:'45%', }}>
-                            <p>Address</p>
-                            <p>{person.address}</p>
-                           </div>
-                           <div style={{textAlign:'left', width:'45%'}}>
-                           <p>City</p>
-                           <p>{person.city}</p>
-
-                           </div>
-                        </div >
-                        <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
-                        <div style={{width:'100%', display:'flex', justifyContent:'space-between', marginBottom:'20px', marginTop:'20px'}}>
-                        <div style={{textAlign:'left', width:'45%', }}>
-                            <p>State</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Nationality</p>
                             <p>{person.state}</p>
-                           </div>
-                           <div style={{textAlign:'left', width:'45%'}}>
-                           <p>Zipcode</p>
-                           <p>{person.zipcode}</p>
 
-                           </div>
+                          </div>
+                        </div >
+
+                        <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', marginTop: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%', }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Address</p>
+                            <p>{person.address}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>City</p>
+                            <p>{person.city}</p>
+
+                          </div>
+                        </div >
+                        <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', marginTop: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%', }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>State</p>
+                            <p>{person.state}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Zipcode</p>
+                            <p>{person.zipcode}</p>
+
+                          </div>
                         </div >
                       </div>
 
 
 
 
+                    </>
+                  }
+
+                  {
+                    minimain === "Professional Information" && <>
+                      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', marginTop: '20px' }}>
+
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Employee ID</p>
+                            <p>{person.emnums}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>User Name</p>
+                            <p>{person.lastname} _ {person.firstname}</p>
+
+                          </div>
+                        </div>
+                        <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
+
+
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', marginTop: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%', }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Employee Type</p>
+                            <p>{person.type}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Email Address</p>
+                            <p>{person.email}</p>
+
+                          </div>
+                        </div>
+
+                        <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', marginTop: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%', }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Department</p>
+                            <p>{person.department}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Designation</p>
+                            <p>{person.designation}</p>
+
+                          </div>
+                        </div >
+
+                        <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
+
+
+
+
+                      </div>
+
+
+                    </>
+                  }
+
+                  {
+                    minimain === "Account" &&
+                    <>
+                      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', marginTop: '20px' }}>
+
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Email</p>
+                            <p>{person.email}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Stock Id</p>
+                            <p>{person.lastname}_{person.firstname}</p>
+
+                          </div>
+                        </div>
+                        <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
+
+
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px', marginTop: '20px' }}>
+                          <div style={{ textAlign: 'left', width: '45%', }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>Skype Id</p>
+                            <p>{person.firstname}_{person.lastname}</p>
+                          </div>
+                          <div style={{ textAlign: 'left', width: '45%' }}>
+                            <p style={{
+                              fontSize: '14px',
+                              fontWeight: '300px',
+                              lineHeight: '22px',
+                              color: 'rgba(162, 161, 168, 1)'
+                            }}>X Id</p>
+                            <p>{person.firstname}_{person.lastname}</p>
+
+                          </div>
+                        </div>
+
+                        <hr style={{ border: "1px solid rgba(162, 161, 168, 0.1)", width: '97%', margin: 'auto' }} />
+
+
+
+
+                      </div>
                     </>
                   }
                 </div>
