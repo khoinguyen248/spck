@@ -8,6 +8,7 @@ import Attendance from './Attendance';
 import Payroll from './Payroll';
 import AllEmployee from './AllEmployeeTest';
 import Candidates from '../Candidates/Candidates';
+import Jobs from './Jobs';
 
 export const Mainpath = () => {
   const store = useContext(StoreContext)
@@ -32,6 +33,7 @@ export const Mainpath = () => {
         {userId === "Attendance" && <Attendance />}
         {userId === "Payroll" && <Payroll />}
         {userId === "Candidates" && <Candidates />}
+        {userId === "Jobs" && <Jobs/>}
       </>}
 
 

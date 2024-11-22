@@ -101,7 +101,13 @@ const PersonalInf = () => {
                     fontSize: '24px',
                     fontWeight: '600',
                     lineHeight: '36px',
-                  }}>{person.name}</p>
+                    display: 'flex', width: '400px', gap: '10px'
+                  }}>{person.name} <span style={{
+                    width: '78px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'center', fontSize: '12px', borderRadius: '10px',
+                    fontWeight: '300px',
+                    lineHeight: '26px', color: person.status === "Permanent" ? 'rgba(113, 82, 243, 1)' : 'rgba(239, 190, 18, 1)',
+                    backgroundColor: person.status === "Permanent" ? 'rgba(113, 82, 243, 0.1)' : 'rgba(239, 190, 18, 0.1)'
+                  }}>{person.status}</span></p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <FaBriefcase />
                     <p style={{
@@ -163,15 +169,16 @@ const PersonalInf = () => {
                 flexDirection: 'column',
                 width: '20%',
                 marginTop: '20px',
-                borderRadius:'10px',
+                borderRadius: '10px',
                 overflowX: 'hidden', /* Ngăn tràn theo chiều ngang */
-overflowY: 'hidden',
-border:'1px solid rgba(162, 161, 168, 0.2)', marginBottom:'20px'
+                overflowY: 'hidden',
+                border: '1px solid rgba(162, 161, 168, 0.2)', marginBottom: '20px',
+                height: 'fit-content'
 
               }}>
 
                 {bigtoogle.map(item => {
-                  return <><button style={bigcolor === item ? { display:'flex', alignItems:'center', backgroundColor:'rgba(113, 82, 243, 1)', color:'white', width:"100%" } : { display:'flex', alignItems:'center', width:"100%" }} onClick={() => {
+                  return <><button style={bigcolor === item ? { display: 'flex', alignItems: 'center', backgroundColor: 'rgba(113, 82, 243, 1)', color: 'white', width: "100%" } : { display: 'flex', alignItems: 'center', width: "100%" }} onClick={() => {
                     toogleParts(item)
 
                   }}>{item}</button></>
@@ -196,7 +203,7 @@ border:'1px solid rgba(162, 161, 168, 0.2)', marginBottom:'20px'
                     {profile.map(item => {
                       return <button onClick={() => {
                         toogleParts2(item)
-                      }} style={smallcolor === item ? {display:'flex', alignItems:'center', justifyContent:'center', borderBottom:'2px solid rgba(113, 82, 243, 1)', color:'rgba(113, 82, 243, 1)' } : { justifyContent:'center',display:'flex', alignItems:'center' }}>{item}</button>
+                      }} style={smallcolor === item ? { height: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '2px solid rgba(113, 82, 243, 1)', color: 'rgba(113, 82, 243, 1)' } : { height: '50px', justifyContent: 'center', display: 'flex', alignItems: 'center' }}>{item}</button>
                     })}
 
 
@@ -205,7 +212,7 @@ border:'1px solid rgba(162, 161, 168, 0.2)', marginBottom:'20px'
                   {
                     minimain === "Personal Information" &&
                     <>
-                      <div style={{ width: '100%', display: 'flex', flexDirection: 'column' ,marginTop: '20px'}}>
+                      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', marginTop: '20px' }}>
 
                         <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
                           <div style={{ textAlign: 'left', width: '45%' }}>
@@ -497,8 +504,201 @@ border:'1px solid rgba(162, 161, 168, 0.2)', marginBottom:'20px'
                 </div>
 
               </>}
-              { }
-              { }
+              {menu === "Project" && <>
+                <div style={{
+                  width: '78%',
+                  display: 'flex',
+                  flexDirection: 'column',
+
+                }}>
+
+                  <div style={{ display: 'flex', marginTop: '20px' }}>
+                    <p style={{
+                      width: '72px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Sr. No.</p>
+                    <p style={{
+                      width: '278.5px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Project Name</p>
+                    <p style={{
+                      width: '172px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Start Date</p>
+                    <p style={{
+                      width: '152px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Finish Date</p>
+                    <p style={{
+                      width: '93.5px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Status</p>
+
+                  </div>
+
+                  {person.projects.map(
+
+                    item => {
+
+                      return <>
+
+
+                        <div style={{ display: 'flex', }}>
+                          <p style={{
+                            width: '72px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                            fontWeight: '300px',
+                            lineHeight: '26px',
+                            color: 'black'
+                          }}>{item.id}</p>
+                          <p style={{
+                            width: '278.5px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                            fontWeight: '300px',
+                            lineHeight: '26px',
+                            color: 'black'
+                          }}>{item.name}</p>
+                          <p style={{
+                            width: '172px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                            fontWeight: '300px',
+                            lineHeight: '26px',
+                            color: 'black'
+                          }}>{item.date}</p>
+                          <p style={{
+                            width: '152px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                            fontWeight: '300px',
+                            lineHeight: '26px',
+                            color: 'black'
+                          }}>{item.fdate}</p>
+                          <p style={{
+                            width: '78px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'center', fontSize: '12px', borderRadius: '10px',
+                            fontWeight: '300px',
+                            lineHeight: '26px',
+                            color: item.status === "Completed" ? 'rgba(63, 194, 138, 1)' : 'rgba(239, 190, 18, 1)',
+                            backgroundColor: item.status === "Completed" ? 'rgba(63, 194, 138, 0.1)' : 'rgba(239, 190, 18, 0.1)'
+
+                          }}>{item.status}</p>
+
+                        </div>
+
+
+                      </>
+                    }
+                  )}
+
+
+                </div>
+              </>}
+              {menu ==="Attendance" && <>
+                   <div style={{
+                  width: '78%',
+                  display: 'flex',
+                  flexDirection: 'column',
+
+                }}>
+                  
+                  <div style={{ display: 'flex', marginTop: '20px' }}>
+                    <p style={{
+                      width: '132px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Date</p>
+                    <p style={{
+                      width: '142px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Check In</p>
+                    <p style={{
+                      width: '142px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Check Out</p>
+                    <p style={{
+                      width: '102px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Break</p>
+                    <p style={{
+                      width: '160px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Working Hours</p>
+
+<p style={{
+                       height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'rgba(162, 161, 168, 1)'
+                    }}>Status</p>
+
+                  </div>
+
+                  {person.attendance.map(item => {
+
+                    return <>
+                       <div style={{ display: 'flex', marginTop: '20px' }}>
+                    <p style={{
+                      width: '132px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'black'
+                    }}>{item.date}</p>
+                    <p style={{
+                      width: '142px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'black'
+                    }}>{item.checkIn}</p>
+                    <p style={{
+                      width: '142px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'black'
+                    }}>{item.checkOut}</p>
+                    <p style={{
+                      width: '102px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                      color: 'black'
+                    }}>{item.break}</p>
+                    <p style={{
+                      width: '160px', height: '44px', display: 'flex', alignItems: 'center', fontSize: '14px',
+                      fontWeight: '300px',
+                      lineHeight: '24px',
+                     color: 'black'
+                    }}>{item.workingHours}</p>
+
+<p style={{
+                            width: '78px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'center', fontSize: '12px', borderRadius: '10px',
+                            fontWeight: '300px',
+                            lineHeight: '26px',
+                            color: item.status === "Late" ? 'rgba(239, 190, 18, 1)' :  'rgba(63, 194, 138, 1)',
+                            backgroundColor: item.status === "Late" ?  'rgba(239, 190, 18, 0.1)' : 'rgba(63, 194, 138, 0.1)'
+
+                          }}>{item.status}</p>
+
+                  </div>
+                    
+                    </>
+                  })}
+                  
+                  
+                  
+                  </div>           
+               </> }
               { }
 
             </div>
