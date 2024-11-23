@@ -13,16 +13,19 @@ import { useContext } from 'react';
 import { StoreContext } from '../../store';
 
 import { useState } from 'react';
+import { Modal3 } from '../../Modal3';
 
 const Jobs = () => {
 
     const [check, setCheck] = useState(false)
     const [arr, setArr] = useState([])
+    const [toogle, setToogle] = useState(false)
 
     const fetchOne = async () => {
         try {
             setCheck(true)
             const respone = await fetch('https://6740972cd0b59228b7f099c5.mockapi.io/kooi')
+           
             const data = await respone.json()
             setArr(data)
             setCheck(false)
@@ -38,6 +41,7 @@ const Jobs = () => {
     }, [])
 
     return (
+        <>
         <div className='cha'>
             <div className='con'>
                 <div className='header'>
@@ -48,7 +52,7 @@ const Jobs = () => {
                             lineHeight: '30px',
                             textAlign: 'left'
 
-                        }}>Attendance</p>
+                        }}>Jobs</p>
                         <p style={{
 
                             fontSize: '14px',
@@ -57,7 +61,7 @@ const Jobs = () => {
                             textAlign: 'left',
                             color: 'rgba(162, 161, 168, 1)'
 
-                        }}  >All employees Attendance</p>
+                        }}  >All jobs available</p>
                     </div>
 
                     <div className='header-2' style={{
@@ -108,7 +112,27 @@ const Jobs = () => {
                             }}><CiSearch size={24} /></label>
                         </div>
 
+                        <button style={{
 
+width: '140px',
+height: '50px',
+paddingLeft: '20px',
+borderRadius: '10px',
+
+fontSize: '16px',
+fontWeight: '300',
+lineHeight: '24px',
+display: 'flex',
+alignItems: 'center',
+backgroundColor: ' rgba(113, 82, 243, 1)',
+color: 'White',
+border: 'none',
+
+
+}} onClick={() => {
+   setToogle(true)
+
+}}><IoIosAddCircleOutline />Add Job</button>
 
 
                     </div>
@@ -178,11 +202,12 @@ const Jobs = () => {
 
                                         })}
                                     </div>
-
+                                   
                                 </>
 
 
                             </>
+                             
                         })}
                     </div>
 
@@ -193,6 +218,9 @@ const Jobs = () => {
 
             </div>
         </div>
+
+        {toogle && arr?.length>0 && <Modal3 toogle ={setToogle} setArr={setArr} arr={arr}/>}
+        </>
     )
 }
 
