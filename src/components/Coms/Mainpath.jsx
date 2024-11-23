@@ -33,7 +33,13 @@ export const Mainpath = () => {
         {userId === "Attendance" && <Attendance />}
         {userId === "Payroll" && <Payroll />}
         {userId === "Candidates" && <Candidates />}
-        {userId === "Jobs" && <Jobs/>}
+        {userId === "Jobs" && <Jobs />}
+        {userId === "Setting" && <img style={{ height: '500px', marginRight: '600px', marginTop: '100px' }} src='https://static.vecteezy.com/system/resources/previews/027/769/355/non_2x/update-icon-upgrade-system-sign-installing-software-gear-settings-application-update-process-completed-refresh-button-update-status-symbol-updating-system-software-illustration-vector.jpg'></img>}
+        {userId === "Dashboard" && <img style={{ height: '500px', marginRight: '600px', marginTop: '100px' }} src='https://static.vecteezy.com/system/resources/previews/027/769/355/non_2x/update-icon-upgrade-system-sign-installing-software-gear-settings-application-update-process-completed-refresh-button-update-status-symbol-updating-system-software-illustration-vector.jpg'></img>}
+        {userId === "Leave" && <img style={{ height: '500px', marginRight: '600px', marginTop: '100px' }} src='https://static.vecteezy.com/system/resources/previews/027/769/355/non_2x/update-icon-upgrade-system-sign-installing-software-gear-settings-application-update-process-completed-refresh-button-update-status-symbol-updating-system-software-illustration-vector.jpg'></img>}
+
+
+
       </>}
 
 

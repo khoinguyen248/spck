@@ -16,7 +16,7 @@ const Candidates = () => {
 
     return (
         <>
-            <div className="content">
+            <div style={{ marginRight: '70px' }} className="content">
                 <div style={{ marginBottom: '50px', marginTop: '20px' }} className='header'>
                     <div className='header-1'>
                         <p style={{
