@@ -15,6 +15,15 @@ const AddEmployee = () => {
     const [check, setCheck] = useState(false)
     const [arr, setArr] = useState([])
     const [toogle, setToogle] = useState(false)
+
+    const [name, setName] = useState('')
+    const [img, setImg] = useState('')
+
+    const [department, setDepartment] = useState('')
+    const [emnums, setEmnums] = useState('')
+    const [designation, setDesignation] =useState('')
+    const [type, setType] = useState('')
+
     const fetchOne = async () => {
         try {
             setCheck(true)
@@ -40,45 +49,45 @@ const AddEmployee = () => {
             <div className='cha'>
                 <div className="addEmployee">
                     <div className="topList">
-                        {nowList == 1 ? < div onClick={() => { setnowList(1) }} className="topDetailOn">
+                        {nowList == 1 ? < div onClick={() => { setnowList(1) }} className="topDetailOn" style={{cursor:'pointer'}}>
                             <FaUser />
                             <p>Personal Information</p>
                         </div>
                             :
-                            <div onClick={() => { setnowList(1) }} className="topDetailOff">
+                            <div onClick={() => { setnowList(1) }} className="topDetailOff" style={{cursor:'pointer'}}>
                                 <FaUser />
                                 <p>Personal Information</p>
                             </div>
                         }
-                        {nowList == 2 ? < div onClick={() => { setnowList(2) }} className="topDetailOn">
+                        {nowList == 2 ? < div onClick={() => { setnowList(2) }} className="topDetailOn" style={{cursor:'pointer'}}>
                             <SlBriefcase />
                             <p>Professional Information</p>
                         </div>
                             :
-                            <div onClick={() => { setnowList(2) }} className="topDetailOff">
+                            <div onClick={() => { setnowList(2) }} className="topDetailOff" style={{cursor:'pointer'}}>
                                 <SlBriefcase />
                                 <p>Professional Information</p>
                             </div>
                         }
-                        {nowList == 3 ? < div onClick={() => { setnowList(3) }} className="topDetailOn">
+                        {nowList == 3 ? < div onClick={() => { setnowList(3) }} className="topDetailOn" style={{cursor:'pointer'}}>
                             <IoDocumentTextOutline />
 
                             <p>Documents</p>
                         </div>
                             :
-                            <div onClick={() => { setnowList(3) }} className="topDetailOff">
+                            <div onClick={() => { setnowList(3) }} className="topDetailOff" style={{cursor:'pointer'}}>
                                 <IoDocumentTextOutline />
 
                                 <p>Documents</p>
                             </div>
                         }
-                        {nowList == 4 ? < div onClick={() => { setnowList(4) }} className="topDetailOn">
+                        {nowList == 4 ? < div onClick={() => { setnowList(4) }} className="topDetailOn" style={{cursor:'pointer'}}>
                             <IoAccessibilityOutline />
 
                             <p>Account Access</p>
                         </div>
                             :
-                            <div onClick={() => { setnowList(4) }} className="topDetailOff">
+                            <div onClick={() => { setnowList(4) }} className="topDetailOff" style={{cursor:'pointer'}}>
                                 <IoAccessibilityOutline />
                                 <p>Account Access</p>
                             </div>
