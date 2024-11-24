@@ -19,7 +19,7 @@ export const Modal = () => {
                <p style={{fontFamily:'lexend', fontSize:'16px', fontWeight:'300', lineHeight:'24px', color:'rgba(162, 161, 168, 1)'}}>Your password has been update successfully</p>
                <button style={{padding:'20px', width:'80%', margin:'auto', border:'none', borderRadius:'10px', backgroundColor:'rgba(113, 82, 243, 1)', fontFamily:'lexend', fontSize:'16px', fontWeight:'300', lineHeight:'24px', color:'white', cursor:'pointer',  display: 'flex',
             justifyContent:'center',
-            alignItems:'center',}} onClick={() => {navigate("/Signup")}} >Back to login</button>
+            alignItems:'center',}} onClick={() => {navigate("/signup")}} >Back to login</button>
             </div>
         </div>
   )
