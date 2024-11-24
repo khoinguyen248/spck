@@ -1,12 +1,9 @@
 * {
     font-size: 16px;
 }
-.cha{
-    display: flex;
-    align-items: center;
-    height: 1024px;
-    width: 82%;
-}
+
+
+
 .AllDepartments {
     width: 90%;
     height: 98%;
@@ -34,7 +31,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
-
+        justify-content: space-between;
 
         .detailDepartment {
             width: 505px;

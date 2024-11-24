@@ -58,17 +58,15 @@ export const Button = () => {
                             <p style={{ fontFamily: 'lexend', fontSize: '24px' }}>HRSM</p>
                         </div>
                         <button className={userId === "Dashboard" ? 'selected' : ''} onClick={() => handleCheckbut("Dashboard")}><RxDashboard />Dashboard</button>
-
-
                         <button className={userId === "Allemployee" ? 'selected' : ''} onClick={() => handleCheckbut("Allemployee")}><BsPersonLinesFill />All employees</button>
                         <button className={userId === "AllDepartments" ? 'selected' : ''} onClick={() => handleCheckbut("AllDepartments")}><MdOutlineLocalFireDepartment />All departments</button>
                         <button className={userId === "Attendance" ? 'selected' : ''} onClick={() => handleCheckbut("Attendance")}><GrSchedules />Attendance</button>
                         <button className={userId === "Payroll" ? 'selected' : ''} onClick={() => handleCheckbut("Payroll")}><CiDollar />Payroll</button>
                         <button className={userId === "Jobs" ? 'selected' : ''} onClick={() => handleCheckbut("Jobs")}><RxBackpack />Jobs</button>
                         <button className={userId === "Candidates" ? 'selected' : ''} onClick={() => handleCheckbut("Candidates")}><IoPersonAddOutline />Candidates</button>
-                        <button className={userId === "8" ? 'selected' : ''} onClick={() => handleCheckbut(8)}><MdEventNote />Leaves</button>
-                        <button className={userId === "9" ? 'selected' : ''} onClick={() => handleCheckbut(9)}><LuCalendarDays />Holidays</button>
-                        <button className={userId === "0" ? 'selected' : ''} onClick={() => handleCheckbut(0)}><IoSettingsOutline />Setting</button>
+                        <button className={userId === "Leave" ? 'selected' : ''} onClick={() => handleCheckbut("Leave")}><MdEventNote />Leaves</button>
+                        <button className={userId === "Holiday" ? 'selected' : ''} onClick={() => handleCheckbut("Holiday")}><LuCalendarDays />Holidays</button>
+                        <button className={userId === "Setting" ? 'selected' : ''} onClick={() => handleCheckbut("Setting")}><IoSettingsOutline />Setting</button>
                     </div>
 
                 </div>
