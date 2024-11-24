@@ -9,9 +9,11 @@ import { IoCameraOutline } from "react-icons/io5";
 import React, { useRef } from 'react';
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { Modal4 } from '../../../Modal4';
+import { useNavigate } from 'react-router-dom';
 
 
 const AddEmployee = () => {
+    const nav = useNavigate()
     const [check, setCheck] = useState(false)
     const [arr, setArr] = useState([])
     const [toogle, setToogle] = useState(false)
@@ -142,7 +144,7 @@ const AddEmployee = () => {
                                 setToogle(true)
 
                             }}><IoIosAddCircleOutline />Add Employee Test </button>
-                            <button className="cancel">Cancel</button>
+                            <button onClick={() => { nav("/Homepage/Allemployee") }} className="cancel">Cancel</button>
                             <button onClick={() => { setnowList(nowList + 1) }} className="next">Next</button>
                         </div>
                     </>
@@ -185,7 +187,7 @@ const AddEmployee = () => {
                                 setToogle(true)
 
                             }}><IoIosAddCircleOutline />Add Employee Test </button>
-                            <button className="cancel">Cancel</button>
+                            <button onClick={() => { nav("/Homepage/Allemployee") }} className="cancel">Cancel</button>
                             <button onClick={() => { setnowList(nowList + 1) }} className="next">Next</button>
                         </div>
                     </>
@@ -213,7 +215,7 @@ const AddEmployee = () => {
                                 setToogle(true)
 
                             }}><IoIosAddCircleOutline />Add Employee Test </button>
-                            <button className="cancel">Cancel</button>
+                            <button onClick={() => { nav("/Homepage/Allemployee") }} className="cancel">Cancel</button>
                             <button onClick={() => { setnowList(nowList + 1) }} className="next">Next</button>
                         </div>
                     </>
@@ -250,7 +252,7 @@ const AddEmployee = () => {
                                 setToogle(true)
 
                             }}><IoIosAddCircleOutline />Add Employee Test </button>
-                            <button className="cancel">Cancel</button>
+                            <button onClick={() => { nav("/Homepage/Allemployee") }} className="cancel">Cancel</button>
                             <button className="add">Add</button>
                         </div>
                     </>
