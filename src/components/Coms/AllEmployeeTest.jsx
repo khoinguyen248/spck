@@ -359,7 +359,8 @@ const AllEmployee = () => {
                     }} />
                     <FaRegTrashAlt size={22} onClick={() => {
                       setHooks(true)
-                    }} />
+                      setUser(item.id)
+                    }}/>
                     <FaPenToSquare size={22} />
                   </div>
 
@@ -438,6 +439,7 @@ const AllEmployee = () => {
                     }} />
                     <FaRegTrashAlt size={22} onClick={() => {
                       setHooks(true)
+                      setUser(item.id)
                     }}/>
                     <FaPenToSquare size={22} />
                   </div>
@@ -516,9 +518,10 @@ const AllEmployee = () => {
                       navigate(`/Homepage/Allemployee/${item.name} `)
 
                     }} />
-                    <FaRegTrashAlt size={22} onClick={() => {
+                   <FaRegTrashAlt size={22} onClick={() => {
                       setHooks(true)
-                    }} />
+                      setUser(item.id)
+                    }}/>
                     <FaPenToSquare size={22} />
                   </div>
 
@@ -598,6 +601,7 @@ const AllEmployee = () => {
                     }} />
                     <FaRegTrashAlt size={22} onClick={() => {
                       setHooks(true)
+                      setUser(item.id)
                     }}/>
                     <FaPenToSquare size={22} />
                   </div>
